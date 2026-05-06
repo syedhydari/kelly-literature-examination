@@ -159,6 +159,10 @@ Three findings emerge that CC20 do not report. *(F1)* The Monte Carlo establishe
 
 Backtest comparisons are inferential exercises, and the absence of formal hypothesis tests in much of the practitioner literature lets cumulative-wealth panels do work they cannot honestly support. Half Kelly is the only fraction with a defensible record across all four diagnostics — Monte Carlo median wealth, single-equity drawdown, OOS long-only Sharpe, and DJI generalization — and the practical recommendation is the conservative one. Future work should attach formal inference to existing Kelly comparisons, explore $\mu$/$\Sigma$ shrinkage under rolling-window OOS, and test the constraint-collapse mechanism on additional equity panels.
 
+# Limitations
+
+Several limitations remain. Kelly optimization is highly sensitive to estimation error in expected returns and covariance matrices, particularly in rolling-window out-of-sample settings where small input changes can materially affect portfolio weights. Besides, the analysis also assumes relatively stable return dynamics. But real financial markets experience regime shifts, crises, structural breaks that may violate these assumptions. In addition, the backtests do not incorporate transaction costs, slippage, other market frictions. This could materially reduce the performance of highly leveraged or frequently rebalanced strategies. Finally, long-only portfolio constraints alter the theoretical Kelly optimum and may mechanically affect portfolio comparisons across Kelly multiples.
+
 # References
 
 Breiman, L. (1961). Optimal gambling systems for favorable games. *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability*, 1, 65–78.
