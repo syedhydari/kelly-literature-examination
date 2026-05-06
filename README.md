@@ -88,8 +88,3 @@ Lifting the budget cap:
 ## Authors
 
 Syed Bashir Hydari et al.
-
----
-
-**Last Updated**: May 2026  
-**Repository**: [syedhydari/kelly-literature-examination](https://github.com/syedhydari/kelly-literature-examination)
