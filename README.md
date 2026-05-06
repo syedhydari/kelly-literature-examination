@@ -21,28 +21,6 @@ The apparent outperformance of aggressive Kelly multiples (Double, Triple) over 
 
 ---
 
-## 📂 Repository Structure
-
-```
-kelly-literature-examination/
-├── README.md                          # This file
-├── docs/
-│   ├── Final_Report.qmd               # Main research report (Quarto/R Markdown)
-│   ├── Final_Report.pdf               # Compiled main report
-│   ├── Final_Report_Appendix.qmd      # Extended appendix with full details
-│   └── Final_Report_Appendix.pdf      # Compiled appendix
-└── figures/
-    ├── fig-A1-1.pdf                   # Monte Carlo validation plots
-    ├── fig-A2-1.pdf                   # Banca Intesa backtest results
-    ├── fig-A3-1.pdf                   # In-sample EuroStoxx 50 analysis
-    ├── fig-A4-1.pdf                   # Out-of-sample long-only Kelly variants
-    ├── fig-A5-1.pdf                   # Unconstrained Kelly performance
-    ├── fig-A6-1.pdf                   # Summary metrics comparison
-    └── fig-A7-1.pdf                   # Dow Jones Industrial Average backtest
-```
-
----
-
 ## 🎯 Research Objectives
 
 | Objective | Description |
@@ -115,43 +93,6 @@ Solver: `quadprog` R package (interior-point method)
 
 ---
 
-## 📈 Main Results Summary
-
-### Monte Carlo Validation (10,000 trades, 1,000 paths)
-
-| Strategy | Mean | Median | Std Dev | P(Loss) | P(W>2) | P(W>10) |
-|----------|------|--------|---------|---------|--------|---------|
-| Half Kelly | 7.03 | 4.54 | 9 | 4.0% | 83.6% | 20.0% |
-| Full Kelly | 31.47 | 6.89 | 94 | 12.3% | 76.3% | 41.7% |
-| Double Kelly | 183.80 | 1.67 | 1,803 | 44.5% | 48.3% | 29.5% |
-| Triple Kelly | 518.50 | 0.01 | 11,867 | 79.0% | 17.5% | 10.8% |
-
-**Interpretation**: Jensen's inequality ($\mathbb{E}[\log W] < \log \mathbb{E}[W]$) widens with leverage.
-
-### Out-of-Sample Long-Only Performance (EuroStoxx 50, 2005–2018)
-
-| Strategy | Sharpe | Max DD | Ann Return | Ann Vol | Sortino | CVaR (95%) |
-|----------|--------|--------|-----------|---------|---------|-----------|
-| Half Kelly | 0.556 | 35.2% | 7.87% | 14.15% | 0.835 | 0.0195 |
-| Full Kelly | 0.621 | 63.9% | 16.87% | 27.17% | 0.925 | 0.0380 |
-| Double Kelly | 0.621 | 63.9% | 16.87% | 27.17% | 0.925 | 0.0380 |
-| Triple Kelly | 0.621 | 63.9% | 16.87% | 27.17% | 0.925 | 0.0380 |
-| MinVar | 0.480 | 58.0% | 8.55% | 17.79% | 0.685 | 0.0261 |
-
-**Interpretation**: Full/Double/Triple are **identical**—constraint collapse in action.
-
-### HAC Pairwise Tests (5 lags, long-only OOS)
-
-| Pair | Mean Diff | HAC SE | t-stat | p-value | Significant? |
-|------|-----------|--------|--------|---------|--------------|
-| Half Kelly vs Full Kelly | −0.0004 | 0.0001 | −2.4646 | **0.0138** | ✓ Yes |
-| Half Kelly vs MinVar | 0.0000 | 0.0002 | −0.1785 | 0.8584 | ✗ No |
-| Full Kelly vs MinVar | 0.0003 | 0.0002 | 1.4736 | 0.1407 | ✗ No |
-
-**Interpretation**: Only Half-vs-Full is statistically significant—a constraint artifact, not true optimization gain.
-
----
-
 ## 🛠️ Technical Stack
 
 | Tool | Purpose |
@@ -164,71 +105,6 @@ Solver: `quadprog` R package (interior-point method)
 | **sandwich** / **lmtest** | HAC covariance & t-tests |
 | **tidyverse** | Data wrangling & visualization |
 | **knitr** | R Markdown table generation |
-
----
-
-## 💡 Practical Takeaways for Practitioners
-
-1. **Aggressive Kelly multiples are not "better"—they're different risk profiles.** Comparing mean terminal wealth without accounting for variance is misleading. Use formal hypothesis tests.
-
-2. **Long-only constraints eliminate the leverage benefit.** If you can't short or leverage, Full/Double/Triple Kelly are mathematically identical. Don't "choose" between them; any selection is arbitrary.
-
-3. **Mean-vs-median matters in the real world.** A strategy with 31.47× mean but 0.01× median (Triple Kelly) will bankrupt you before reaching the mean. Median wealth is your actual experience.
-
-4. **Estimation noise kills unconstrained Kelly.** Without perfect parameter knowledge, unlimited leverage amplifies errors catastrophically. Half or Full Kelly with long-only constraints is far more robust.
-
-5. **Always conduct statistical inference, not just backtests.** Cumulative wealth plots and Sharpe ratios can obscure what formal hypothesis testing reveals: many "improvements" are noise.
-
----
-
-## 📚 References
-
-- **Breiman, L.** (1961). Optimal gambling systems for favorable games. *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability*, 1, 65–78.
-
-- **Carta, A., & Conversano, C.** (2020). Practical implementation of the Kelly Criterion. *Frontiers in Applied Mathematics and Statistics*, 6, 577050.
-
-- **Cover, T. M.** (1991). Universal portfolios. *Mathematical Finance*, 1(1), 1–29.
-
-- **Kelly, J. L.** (1956). A new interpretation of information rate. *Bell System Technical Journal*, 35(4), 917–926.
-
-- **MacLean, L. C., Thorp, E. O., & Ziemba, W. T.** (Eds.). (2011). *The Kelly Capital Growth Investment Criterion*. World Scientific.
-
-- **Newey, W. K., & West, K. D.** (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica*, 55(3), 703–708.
-
-- **Thorp, E. O.** (2011). The Kelly criterion in blackjack, sports betting, and the stock market. In *The Kelly Capital Growth Investment Criterion* (pp. 789–832). World Scientific.
-
----
-
-## 👥 Contributors
-
-| Name | Role |
-|------|------|
-| **Syed Bashir Hydari** | Core reproduction, source code, final paper, speaker |
-| **Aniqa Nayim** | Core reproduction, source code, final paper, speaker |
-
----
-
-## 📄 Report Files
-
-### Main Report
-- **`Final_Report.qmd`** – Quarto R Markdown source
-- **`Final_Report.pdf`** – Compiled PDF (~70 KB)
-  - Includes introduction, methodology, results, discussion, conclusion
-  - Contains embedded tables and references
-
-### Appendix
-- **`Final_Report_Appendix.qmd`** – Extended technical appendix source
-- **`Final_Report_Appendix.pdf`** – Full appendix (~891 KB)
-  - Detailed figure layouts, additional analyses, supplementary tables
-
----
-
-## 🔍 How to Use This Repository
-
-1. **Read the Research**: Start with `Final_Report.pdf` for the executive summary
-2. **Explore the Analysis**: Open `Final_Report_Appendix.pdf` for full technical details
-3. **Review the Code**: Check `Final_Report.qmd` and `Final_Report_Appendix.qmd` for reproducible source code
-4. **View the Figures**: See `figures/` directory for all plots and visualizations
 
 ---
 
