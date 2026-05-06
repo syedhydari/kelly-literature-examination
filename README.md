@@ -62,37 +62,6 @@ Lifting the budget cap:
 
 ---
 
-## 🔬 Methodology
-
-### Data
-- **35 surviving EuroStoxx 50 constituents** (daily adjusted closes)
-- **Period**: January 2000 – December 2018 (19 years)
-- **Filtering**: 20% missing-data threshold, forward-fill imputation
-- **Source**: Yahoo Finance via `tidyquant` and `quantmod` R packages
-
-### Kelly Optimization Framework
-The multi-asset Kelly Quadratic Program:
-$$\max_{\mathbf{w}} \; \mathbf{w}^\top(\boldsymbol{\mu} - r_f \mathbf{1}) - \tfrac{1}{2}\mathbf{w}^\top \boldsymbol{\Sigma} \mathbf{w}$$
-
-Subject to:
-- $\mathbf{1}^\top \mathbf{w} = f$ (budget constraint with $f \in \{0.5, 1, 2, 3\}$)
-- $w_i \ge 0$ (long-only) *or* unconstrained with leverage cap $|f| \le 3$
-
-Solver: `quadprog` R package (interior-point method)
-
-### Kelly Variants
-- **Half Kelly** ($f = 0.5$): Conservative, reduced leverage
-- **Full Kelly** ($f = 1$): Growth-optimal, "bet the whole account"
-- **Double Kelly** ($f = 2$): Aggressive, $2\times$ leverage
-- **Triple Kelly** ($f = 3$): Ultra-aggressive, $3\times$ leverage
-
-### Statistical Tests
-- **HAC (Heteroskedasticity & Autocorrelation Consistent)**: Newey-West, 5 lags
-- **Null Hypothesis**: Mean daily return difference = 0
-- **Alternative**: Two-tailed at $\alpha = 0.05$
-
----
-
 ## 🛠️ Technical Stack
 
 | Tool | Purpose |
