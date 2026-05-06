@@ -85,9 +85,9 @@ Lifting the budget cap:
 
 ---
 
-## 📧 Questions?
+## Authors
 
-For inquiries about this research, contact the authors via GitHub or email.
+Syed Bashir Hydari et al.
 
 ---
 
