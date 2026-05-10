@@ -37,14 +37,14 @@ editor: source
 \begin{tabular}{rl}
 Syed Bashir Hydari: & core reproduction, source code, final paper, speaker \\
 Aniqa Nayim: & core reproduction, source code, final paper, speaker \\
-A \\
-B \\
-C \\
-D \\
-E \\
-F \\
-G \\
-H \\
+Jason Ye: & core reproduction, presentation creation, speaker \\
+Onamma Uboma:  & presentation creation, research, final paper editing \\
+Cheshta Garg: & presentation creation, research, final paper \\
+Bhupinder Singh: & core reproduction, source code, speaker \\
+Haoxuan Huang: & source code review, final paper editing, figures\\
+Mingyang Xu: & literature review, presentation editing, final paper editing \\
+Pranav Srinivas: & core reproduction, final paper \\
+Tanya Mehta: & literature review, presentation creation, final paper editing \\
 \end{tabular}
 \end{center}
 \newpage
