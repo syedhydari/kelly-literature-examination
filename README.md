@@ -19,17 +19,6 @@ The apparent outperformance of aggressive Kelly multiples (Double, Triple) over 
 
 ---
 
-## 🎯 Research Objectives
-
-| Objective | Description |
-|-----------|-------------|
-| **O1** | Validate Kelly geometry under known GBM parameters via Monte Carlo across four horizons |
-| **O2** | Replicate CC20's pipeline—single-equity (Banca Intesa), in-sample, out-of-sample long-only |
-| **O3** | Extend to unconstrained (leveraged) Kelly and compare across multiple universes |
-| **O4** | Apply formal statistical inference (HAC tests) to deflate apparent performance gaps |
-
----
-
 ## 📊 Key Findings
 
 ### Finding 1: Mean-vs-Median Divergence is Structural
@@ -57,21 +46,6 @@ Lifting the budget cap:
 - Sharpe ratios collapse to 0.10–0.18
 - Max drawdowns reach 72%–97%
 - Leverage amplifies estimation error catastrophically
-
----
-
-## 🛠️ Technical Stack
-
-| Tool | Purpose |
-|------|---------|
-| **R** | Core statistical computing and analysis |
-| **Quarto** | Literate programming (`.qmd` reports) |
-| **quadprog** | Quadratic programming solver for Kelly QP |
-| **tidyquant** | Financial data import (Yahoo Finance) |
-| **quantmod** | OHLC data processing |
-| **sandwich** / **lmtest** | HAC covariance & t-tests |
-| **tidyverse** | Data wrangling & visualization |
-| **knitr** | R Markdown table generation |
 
 ---
 
