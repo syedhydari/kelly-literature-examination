@@ -1,5 +1,7 @@
 # Kelly Criterion: Expansion and Reassessment
 
+Date: May, 2026
+
 **Reproduction and Statistical Reassessment of Kelly Literature**
 
 A comprehensive research project examining the practical implementation of the Kelly Criterion, replicating and critically assessing findings across contemporary Kelly literature.
