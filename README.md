@@ -2,7 +2,7 @@
 
 **Reproduction and Statistical Reassessment of Kelly Literature**
 
-A comprehensive research project examining the practical implementation of the Kelly Criterion, replicating and critically assessing findings from Carta & Conversano (2020).
+A comprehensive research project examining the practical implementation of the Kelly Criterion, replicating and critically assessing findings across contemporary Kelly literature.
 
 ---
 
