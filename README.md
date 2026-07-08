@@ -11,7 +11,7 @@ A comprehensive research project examining the practical implementation of the K
 This repository contains a rigorous statistical and computational examination of the Kelly Criterion—a growth-optimal asset allocation framework with well-known sensitivity to estimation noise. The research:
 
 - **Validates** Kelly geometry under known parameters via Monte Carlo simulation
-- **Replicates** Carta & Conversano's (2020) multi-asset optimization pipeline on real market data
+- **Audits** Several papers' multi-asset optimization pipeline on real market data
 - **Challenges** the statistical robustness of aggressive Kelly variants using formal hypothesis tests
 - **Demonstrates** how long-only budget constraints mechanically collapse seemingly different strategies
 
