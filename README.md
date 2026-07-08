@@ -1,10 +1,6 @@
 # Kelly Criterion: Expansion and Reassessment
 
-Date: May, 2026
-
-**Reproduction and Statistical Reassessment of Kelly Literature**
-
-A comprehensive research project examining the practical implementation of the Kelly Criterion, replicating and critically assessing findings across contemporary Kelly literature.
+May 2026 — Columbia Statistical Methods in Finance class project: literature examination of the Kelly Criterion, covering theoretical foundations, practical limitations, estimation risk, drawdown sensitivity, and modern portfolio-sizing extensions.
 
 ---
 
