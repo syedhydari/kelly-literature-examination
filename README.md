@@ -1,6 +1,6 @@
 # Kelly Criterion | Expansion and Reassessment
 
-**May 2026 — STAT GR 5261 Statistical Methods in Finance:** Columbia class project examining Kelly Criterion literature and implementation claims through Monte Carlo validation, replication logic, constraint diagnostics, and HAC inference.
+**May 2026 — STAT GR 5261 Statistical Methods in Finance:** Columbia class project examining Kelly Criterion literature and implementation claims via Monte Carlo validation, replication logic, constraint diagnostics, and HAC inference.
 
 ## Project Context
 
