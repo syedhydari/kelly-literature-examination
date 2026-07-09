@@ -1,62 +1,39 @@
-# Kelly Criterion: Expansion and Reassessment
+# Kelly Criterion | Expansion and Reassessment
 
-May 2026 — Columbia Statistical Methods in Finance class project: literature examination of the Kelly Criterion, covering theoretical foundations, practical limitations, estimation risk, drawdown sensitivity, and modern portfolio-sizing extensions.
+**May 2026 — STAT GR 5261 Statistical Methods in Finance:** Columbia class project examining Kelly Criterion literature and implementation claims through Monte Carlo validation, replication logic, constraint diagnostics, and HAC inference.
 
----
+## Project Context
 
-## 📋 Project Overview
+- **Date:** May 2026
+- **Course:** STAT GR 5261 — Statistical Methods in Finance
+- **Institution:** Columbia University
+- **Project Type:** Graduate class project / literature examination
+- **Author:** Syed Bashir Hydari et al.
+- **Role:** Engine/source code, final paper, presentation, speaker
+- **Research Area:** Kelly Criterion, portfolio optimization, estimation risk, fractional sizing, constraint effects, and statistical inference
 
-This repository contains a rigorous statistical and computational examination of the Kelly Criterion—a growth-optimal asset allocation framework with well-known sensitivity to estimation noise. The research:
+## Overview
 
-- **Validates** Kelly geometry under known parameters via Monte Carlo simulation
-- **Audits** Several papers' multi-asset optimization pipeline on real market data
-- **Challenges** the statistical robustness of aggressive Kelly variants using formal hypothesis tests
-- **Demonstrates** how long-only budget constraints mechanically collapse seemingly different strategies
+This project examines the practical limits of Kelly Criterion portfolio optimization, with emphasis on estimation noise, leverage sensitivity, drawdown risk, and the statistical robustness of aggressive Kelly variants.
 
-### Key Insight
+The central finding is that apparent outperformance from aggressive Kelly multiples can be driven by **constraint collapse**: under long-only budget constraints, Full, Double, and Triple Kelly may collapse onto the same feasible portfolio, making naive performance comparisons misleading.
 
-The apparent outperformance of aggressive Kelly multiples (Double, Triple) over standard Kelly is an **artifact of constraint collapse**—when the long-only constraint $\sum w_i = f \le 1$ binds for $f \ge 1$, Full/Double/Triple Kelly collapse onto an identical portfolio, making statistical comparison meaningless without formal testing.
+## Methods
 
----
+- Monte Carlo simulation under known GBM parameters
+- Replication and reassessment of core Kelly portfolio literature
+- Long-only and unconstrained Kelly optimization
+- EuroStoxx 50 and Dow Jones robustness checks
+- Newey-West HAC tests on daily return differences
+- Mean-vs-median terminal wealth analysis
+- Drawdown and leverage sensitivity diagnostics
 
-## 📊 Key Findings
+## Key Result
 
-### Finding 1: Mean-vs-Median Divergence is Structural
-The divergence between mean and median terminal wealth grows with leverage ($f^2\sigma^2$). At 10,000 trades:
-- **Full Kelly**: Mean = 31.47× but Median = 6.89× (P(Loss) = 12.3%)
-- **Triple Kelly**: Mean = 518.50× but Median = 0.01× (P(Loss) = 79.0%)
+Formal testing weakens the case for aggressive Kelly variants. Newey-West HAC tests show that the main statistically significant gap is Half Kelly vs Full Kelly, while Kelly-vs-MinVar comparisons fail to reject. When leverage constraints are lifted, unconstrained Kelly variants suffer severe drawdowns and unstable out-of-sample behavior.
 
-This shows aggressive multiples destroy median outcomes despite massive mean gains.
+The practical conclusion is conservative: fractional Kelly is more defensible than aggressive Kelly multiples when estimation noise, constraints, and drawdown risk are taken seriously.
 
-### Finding 2: Long-Only Constraint Collapse
-Once the budget cap binds ($\sum w_i = f \le 1$), **Full/Double/Triple Kelly are mathematically identical**—they all solve the same QP with $f = 1$.
-- Out-of-sample Sharpe: 0.621 (identical for F/D/T Kelly)
-- The "outperformance" of aggressive variants is illusion, not optimization
+## Reproducibility Note
 
-### Finding 3: Formal Tests Deflate Apparent Gaps
-Newey-West HAC tests (5 lags) on daily return differences:
-- Half Kelly vs Full Kelly: **p = 0.014** ✓ (significant)
-- Half Kelly vs MinVar: **p = 0.858** ✗ (not significant)
-- Full Kelly vs MinVar: **p = 0.141** ✗ (not significant)
-
-Only Half-vs-Full is statistically significant—driven by the constraint collapse artifact.
-
-### Finding 4: Unconstrained Kelly Fails Out-of-Sample
-Lifting the budget cap:
-- Sharpe ratios collapse to 0.10–0.18
-- Max drawdowns reach 72%–97%
-- Leverage amplifies estimation error catastrophically
-
----
-
-## 📝 Notes
-
-- This project was created to rigorously assess the statistical robustness of Kelly Criterion implementations, particularly challenging claims about aggressive leverage in academic literature.
-- All analyses are based on historical data (2000–2018) and do not constitute investment advice.
-- Replication requires R with `tidyquant`, `quadprog`, `sandwich`, and related packages.
-
----
-
-## Authors
-
-Syed Bashir Hydari et al.
+This repository contains selected academic materials from a Columbia Statistical Methods in Finance project. It is not investment advice and does not contain production trading infrastructure.
