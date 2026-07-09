@@ -34,6 +34,6 @@ Formal testing weakens the case for aggressive Kelly variants. Newey-West HAC te
 
 The practical conclusion is conservative: fractional Kelly is more defensible than aggressive Kelly multiples when estimation noise, constraints, and drawdown risk are taken seriously.
 
-## Reproducibility Note
+## Note
 
 This repository contains selected academic materials from a Columbia Statistical Methods in Finance project. It is not investment advice and does not contain production trading infrastructure.
