@@ -40,7 +40,7 @@ This repository contains selected academic materials from a Columbia Statistical
 
 ## Intellectual Property Notice
 
-Copyright © 2026 Syed Bashir Hydari. All rights reserved.
+Copyright © 2026 Syed Bashir Hydari et al. All rights reserved.
 
 This repository is publicly accessible for inspection and portfolio
 evaluation only. No permission is granted to reproduce, modify, implement,
