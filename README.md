@@ -37,12 +37,3 @@ The practical conclusion is conservative: fractional Kelly is more defensible th
 ## Note
 
 This repository contains selected academic materials from a Columbia Statistical Methods in Finance project. It is not investment advice and does not contain production trading infrastructure.
-
-## Intellectual Property Notice
-
-Copyright © 2026 Syed Bashir Hydari et al. All rights reserved.
-
-This repository is publicly accessible for inspection and portfolio
-evaluation only. No permission is granted to reproduce, modify, implement,
-distribute, commercialize, or create derivative works from its contents.
-See [LICENSE.md].
